@@ -53,12 +53,12 @@
     <h2 class="py-5">Hello There, Type any age in number you want when you <b>click</b> on the button below!</h2>
     <div class="demo"></div>
     <button class="btn fw-bold rounded border text-light py-2 px-3">Click me!</button>
-    <p class="par"></p>
+    <p class="par my-2"></p>
 
     <script>
     const btn = document.querySelector('.btn');
 
-    btn.addEventListener('click', () => {
+    function pakistan(){
         let container = document.createElement('div');
         let input = document.createElement('input');
         let btn1 = document.createElement('button');
@@ -73,7 +73,19 @@
         btn.parentElement.appendChild(container);
         input.focus();
         input.type ='number'
-    
+        
+        input.addEventListener('keydown',(e)=>{
+            if(e.key==='Enter'){
+                
+            if (input.value <= 17) {
+                par.textContent = 'You are still a kid!';
+            } else if(input.value >=18) {
+                par.textContent = 'You should be ashamed of your past actions! Hahaha Sorry, just kidding.';
+            }
+            }
+        })
+
+
         btn1.addEventListener('click',()=>{
 
             if (input.value <= 17) {
@@ -83,8 +95,9 @@
             }
         })
         
-    });
-
+        btn.removeEventListener('click',pakistan)
+    }
+    btn.addEventListener('click',pakistan );
 
 </script>
 
